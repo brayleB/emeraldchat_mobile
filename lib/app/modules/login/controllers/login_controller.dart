@@ -18,8 +18,8 @@ class LoginController extends GetxController with StateMixin <List<User>>{
   
   @override
   void onInit() {
-    txtEmail.text='david.paul110188@gmail.com';
-    txtPass.text='Password1234!';
+    txtEmail.text='lorenz.marqueses22@gmail.com';
+    txtPass.text='Qwerty123';
     super.onInit();
   }
 

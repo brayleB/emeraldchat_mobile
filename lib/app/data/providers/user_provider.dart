@@ -70,9 +70,8 @@ class UserProvider extends GetConnect {
           'Accept': 'application/json',
           'cookie': cookie.toString()
         },    
-        );     
-         
-      EasyLoading.dismiss();    
+        );           
+      EasyLoading.dismiss();          
       return Response(statusCode: response.statusCode, body: response.body);
     } catch (e) { 
       EasyLoading.dismiss();      

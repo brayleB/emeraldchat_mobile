@@ -30,11 +30,11 @@ class HomeController extends GetxController {
 
   void checkIfLoggedIn() async {
     Response respCurrentUser = await userProvider.getCurrentUser();
-        if(respCurrentUser.statusCode==200){ 
+        if(respCurrentUser.statusCode==200){              
           if(respCurrentUser.body['gold']==false){
             EasyLoading.showInfo("You are non gold user.");
           }
-          else{           
+          else if (respCurrentUser.body['gold']==true){           
             SharedPreferences pref = await SharedPreferences.getInstance();
             await pref.setInt('id', respCurrentUser.body['id'] ?? 0);
             await pref.setString('email', respCurrentUser.body['email']?? '');
@@ -50,7 +50,7 @@ class HomeController extends GetxController {
             await pref.setBool('master', respCurrentUser.body['master'] ?? false);
             await pref.setBool('mod', respCurrentUser.body['mod'] ?? false);
             await pref.setString('username', respCurrentUser.body['username'] ?? '');
-            await pref.setBool('gold', respCurrentUser.body['gold'] ?? false);       
+            await pref.setBool('gold', respCurrentUser.body['gold'] ?? false);              
             Get.to(()=>DashboardView());    
           }  
         } 
