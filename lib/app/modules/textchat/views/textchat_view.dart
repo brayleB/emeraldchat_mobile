@@ -8,10 +8,11 @@ import 'package:get/get.dart';
 import '../bindings/textchat_binding.dart';
 import '../controllers/textchat_controller.dart';
 
+
 class TextchatView extends GetView<TextchatController> {
+  final storeController = Get.put(TextchatController());
+  final txtController = Get.find<TextchatController>();
   TextchatView({Key? key}) : super(key: key);
-
-
   List<ChatMessage> messages = [
     ChatMessage(messageContent: "Hello, Bro", messageType: "receiver"),
     ChatMessage(messageContent: "How have you been?", messageType: "receiver"),

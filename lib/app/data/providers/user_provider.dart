@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -28,8 +29,7 @@ class UserProvider extends GetConnect {
   Future<Response> deleteUser(int id) async => await delete('user/$id');
 
 //Login 
-  Future<Response> loginCall(String email, String password, String captcha) async {  
-  
+  Future<Response> loginCall(String email, String password, String captcha) async {    
     EasyLoading.show(status: "Signing-in");
     try {
       Response response = await post(
@@ -60,7 +60,7 @@ class UserProvider extends GetConnect {
   //current user 
   Future<Response> getCurrentUser() async {  
     final prefs = await SharedPreferences.getInstance();
-    final String? cookie = prefs.getString('cookie');
+    final String? cookie = prefs.getString('cookie');    
     EasyLoading.show(status: "Getting user data");
     try {
       Response response = await get(
@@ -71,8 +71,8 @@ class UserProvider extends GetConnect {
           'cookie': cookie.toString()
         },    
         );           
-      EasyLoading.dismiss();          
-      return Response(statusCode: response.statusCode, body: response.body);
+      EasyLoading.dismiss();              
+      return Response(statusCode: response.statusCode, body: response.body);      
     } catch (e) { 
       EasyLoading.dismiss();      
       return Response(statusText: e.toString());

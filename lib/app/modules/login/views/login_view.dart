@@ -25,7 +25,7 @@ class LoginView extends GetView<LoginController> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(   
       body: Container(
-        color: Colors.blueGrey.shade900,
+        color: darkBackground,
         width: double.infinity,
         height: size.height,
         child: Stack(
@@ -41,12 +41,7 @@ class LoginView extends GetView<LoginController> {
                       "LOGIN",
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white),
                       textAlign: TextAlign.center,                      
-                    ),
-                    SizedBox(height: size.height * 0.02),
-                                Image.asset(
-                      "assets/images/logo7.png",
-                      height: size.height * 0.15,
-                    ),                 
+                    ),                                  
                     SizedBox(height: size.height * 0.03),
                     const Text(
                       "Sign in to your account to access Emerald Chat ",
@@ -65,10 +60,10 @@ class LoginView extends GetView<LoginController> {
                       controller: loginController.txtPass,
                       onChanged: (value) {},
                     ),                                     
-                    SizedBox(height: size.height * 0.01),
+                    SizedBox(height: size.height * 0.03),
                     RoundedButton(
                         textColor: txtColorLight,
-                      bgcolor: txtColorDark,
+                      bgcolor: buttonGreen,
                       text: "LOGIN",
                       press: () {   
                         // loginController.validateFields();     
@@ -76,12 +71,39 @@ class LoginView extends GetView<LoginController> {
                         // Get.to(()=>DashboardView());                     
                       },
                     ),                    
-                    SizedBox(height: size.height * 0.03),
-                    AlreadyHaveAnAccountCheck(
-                      press: () {                      
-                      },
-                    ),                 
-                   
+                    SizedBox(height: size.height * 0.02),    
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                        onTap: (){},
+                        child: Text(
+                          "Reset Password",
+                          style: TextStyle(
+                            color: emeraldColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            ),
+                          ),
+                        ), 
+                        Text(
+                          " or ",
+                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                          textAlign: TextAlign.center,
+                        ),
+                        GestureDetector(
+                        onTap: (){},
+                        child: Text(
+                          " Sign Up",
+                          style: TextStyle(
+                            color: emeraldColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),                                                                           
                   ],
                 ),
               ),

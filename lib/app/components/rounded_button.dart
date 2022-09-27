@@ -1,3 +1,5 @@
+// ignore_for_file: sort_child_properties_last, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:emeraldchat_mobile/app/components/constants.dart';
 
@@ -21,7 +23,7 @@ class RoundedButton extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 10),
       width: size.width * 0.8,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(29),
+        borderRadius: BorderRadius.circular(15),
         child: newElevatedButton(),
       ),
     );
@@ -38,7 +40,7 @@ class RoundedButton extends StatelessWidget {
       ),
       onPressed: press,
       style: ElevatedButton.styleFrom(          
-          primary: Colors.green,
+          primary: bgcolor,
           padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
           textStyle: TextStyle(
               color: textColor, fontSize: 18, fontWeight: FontWeight.w500)),

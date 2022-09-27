@@ -8,10 +8,11 @@ const kPrimaryLightColor = Color.fromARGB(255, 223, 223, 190);
 const txtColorDark = Color.fromARGB(255, 54, 54, 29);
 const txtColorLight = Color.fromARGB(255, 255, 255, 217);
 const txtColorWhite = Color.fromARGB(255, 255, 255, 255);
-const darkBackground = Color.fromARGB(255, 40, 40, 32);
+const darkBackground = Color.fromARGB(255, 48, 51, 67);
 const lightBackground = Color.fromARGB(255, 253, 253, 235);
 const headerBackgroundColor = Color.fromARGB(255, 117, 117, 88);
-const emeraldColor = Color.fromARGB(255, 67, 160, 71);
+const emeraldColor = Color.fromARGB(255,  0, 204, 106);
+const buttonGreen = Color.fromARGB(255, 0, 204, 106);
 
 
 

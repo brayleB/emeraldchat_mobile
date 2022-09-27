@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:emeraldchat_mobile/app/components/constants.dart';
 import 'package:emeraldchat_mobile/app/components/rounded_button.dart';
 import 'package:emeraldchat_mobile/app/modules/login/views/login_view.dart';
@@ -17,7 +19,7 @@ class HomeView extends GetView<HomeController> {
      Size size = MediaQuery.of(context).size;
     return Scaffold( 
       body: Container(
-        color: Colors.blueGrey.shade900,
+        color: darkBackground,
         width: double.infinity,
         height: size.height,
         child: Stack(
@@ -30,7 +32,7 @@ class HomeView extends GetView<HomeController> {
                   children: <Widget>[
                     SizedBox(height: size.height * 0.02),
                     const Text(
-                      "Emerald Chat Mobile",
+                      "Emerald Is The New Omegle",
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white),
                       textAlign: TextAlign.center,                      
                     ),
@@ -41,7 +43,7 @@ class HomeView extends GetView<HomeController> {
                     ),                 
                     SizedBox(height: size.height * 0.03),
                     const Text(
-                      "Sign in to your account to access Emerald Chat With Emerald you can talk to people from around the world for free. Click the 'I'm not a robot' box and get started.",
+                      "Sign in to your account to access Emerald Chat With Emerald you can talk to people from around the world with gold account.",
                       style: TextStyle(color: Colors.white, fontSize: 15),
                       textAlign: TextAlign.center,
                     ),
@@ -49,8 +51,8 @@ class HomeView extends GetView<HomeController> {
                                      
                     SizedBox(height: size.height * 0.01),
                     RoundedButton(
-                        textColor: txtColorLight,
-                      bgcolor: txtColorDark,
+                      textColor: txtColorLight,
+                      bgcolor: buttonGreen,
                       text: "START",
                       press: () { 
                         Get.to(() => LoginView());

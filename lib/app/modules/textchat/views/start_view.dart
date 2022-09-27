@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-class StartView extends GetView<StatefulWidget> {
+class StartView extends GetView<TextchatController> {
   final txtChatCont = Get.put(TextchatController());
   final TextEditingController txtEmail = TextEditingController();
   

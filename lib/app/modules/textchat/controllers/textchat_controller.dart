@@ -1,6 +1,8 @@
 import 'package:emeraldchat_mobile/app/modules/textchat/views/textchat_view.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:web_socket_channel/io.dart';
+import 'package:web_socket_channel/status.dart' as status;
 
 class TextchatController extends GetxController {
   Rx<double> sliderRange = 10.0.obs; 
@@ -9,7 +11,8 @@ class TextchatController extends GetxController {
   final count = 0.obs;
   
   @override
-  void onInit() {
+  void onInit() {   
+    
     super.onInit();
   }
 
