@@ -1,12 +1,15 @@
+import 'package:emeraldchat_mobile/app/data/providers/user_provider.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DashboardController extends GetxController {
+  UserProvider userProvider = UserProvider();
   
   @override
   void onInit() {
     showData();
+    userProvider.socketConnection();
     super.onInit();
   }
 
