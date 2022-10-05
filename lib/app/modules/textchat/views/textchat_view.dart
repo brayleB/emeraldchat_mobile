@@ -138,6 +138,7 @@ class TextchatView extends GetView<TextchatController> {
           ),
         ],
       ),
+      
     );
   }
 }

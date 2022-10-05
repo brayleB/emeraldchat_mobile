@@ -81,17 +81,20 @@ class UserProvider extends GetConnect {
 
   //current user interests
   Future<Response> getCurrentUserInterests() async {    
-    EasyLoading.show(status: "Getting user data");
+    final prefs = await SharedPreferences.getInstance();
+    final String? cookie = prefs.getString('cookie');         
     try {
       Response response = await get(
         "https://emeraldchat.com/current_user_interests_json",                
-        headers: {'Accept': 'application/json'},    
+        headers: 
+        {
+          'Accept': 'application/json',
+          'Cookie': cookie.toString()
+          },    
         );   
-      print(response.body)    ;
-      EasyLoading.dismiss();    
+      print(response.body);      
       return Response(statusCode: response.statusCode, body: response.body);
-    } catch (e) { 
-      EasyLoading.dismiss();      
+    } catch (e) {           
       return Response(statusText: e.toString());
     }     
   }  
@@ -129,6 +132,6 @@ class UserProvider extends GetConnect {
         onError: (error) {
           print('ws error $error');
         },
-      );  
+      );      
   }
 }

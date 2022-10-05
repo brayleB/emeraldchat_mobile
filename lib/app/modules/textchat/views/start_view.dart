@@ -13,7 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class StartView extends GetView<TextchatController> {
-  final txtChatCont = Get.put(TextchatController());
+    final storeController = Get.put(TextchatController());
+  final txtChatController = Get.find<TextchatController>();
   final TextEditingController txtEmail = TextEditingController();
   
   StartView({Key? key}) : super(key: key);
@@ -45,8 +46,7 @@ class StartView extends GetView<TextchatController> {
                         textColor: txtColorLight,
                       bgcolor: txtColorDark,
                       text: "Start",
-                      press: () { 
-                        txtChatCont.start1on1TextChat();                                              
+                      press: () {                                                                   
                       },
                     ), 
                     SizedBox(height: size.height * 0.05),
@@ -71,20 +71,20 @@ class StartView extends GetView<TextchatController> {
                     ),               
                     Obx(
                       () => Slider(
-                        value: txtChatCont.sliderRange.value,
+                        value: txtChatController.sliderRange.value,
                         min: 0.0, //initialized it to a double 
                         max: 10.0,  //initialized it to a double 
                         divisions: 10,
-                        label: txtChatCont.sliderRange.round().toString(),
+                        label: txtChatController.sliderRange.round().toString(),
                         onChanged: (double value) {
-                          txtChatCont.setRange(value);
+                          txtChatController.setRange(value);
                         },
                       ),
                     ),
                     SizedBox(height: size.height * 0.05),
                     Row(
                         children: [
-                          CheckBox(val: txtChatCont.genderFilter),
+                          CheckBox(val: txtChatController.genderFilter),
                           Text(
                             "Gender Filter",
                             style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18, color: Colors.white),
@@ -97,7 +97,7 @@ class StartView extends GetView<TextchatController> {
                     SizedBox(height: size.height * 0.04),                         
                       Row(
                         children: [
-                          CheckBox(val: txtChatCont.genderFilter),
+                          CheckBox(val: txtChatController.genderFilter),
                           Text(
                             "Dont match me to anonymous \naccounts",
                             style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Colors.white),
@@ -108,7 +108,7 @@ class StartView extends GetView<TextchatController> {
                     SizedBox(height: size.height * 0.04),  
                     Row(
                         children: [
-                          CheckBox(val: txtChatCont.genderFilter),
+                          CheckBox(val: txtChatController.genderFilter),
                           Text(
                             "Only match to users with \nkarma more than",
                             style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Colors.white),
@@ -118,13 +118,13 @@ class StartView extends GetView<TextchatController> {
                       ),               
                     Obx(
                       () => Slider(
-                        value: txtChatCont.karmaRange.value,
+                        value: txtChatController.karmaRange.value,
                         min: 0.0, 
                         max: 100.0,  
                         divisions: 100,
-                        label: txtChatCont.karmaRange.round().toString(),
+                        label: txtChatController.karmaRange.round().toString(),
                         onChanged: (double value) {
-                          txtChatCont.setKarmaRange(value);
+                          txtChatController.setKarmaRange(value);
                         },
                       ),
                     ),                                                                                                                                                         

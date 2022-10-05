@@ -1,10 +1,8 @@
-import 'package:emeraldchat_mobile/app/modules/textchat/views/textchat_view.dart';
+import 'package:emeraldchat_mobile/app/data/providers/user_provider.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:web_socket_channel/io.dart';
-import 'package:web_socket_channel/status.dart' as status;
 
 class TextchatController extends GetxController {
+  UserProvider userProvider = UserProvider();
   Rx<double> sliderRange = 10.0.obs; 
   Rx<double> karmaRange = 10.0.obs; 
   bool genderFilter = false;
@@ -12,7 +10,7 @@ class TextchatController extends GetxController {
   
   @override
   void onInit() {   
-    
+    getInterests();
     super.onInit();
   }
 
@@ -26,18 +24,18 @@ class TextchatController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
-
   void setRange(double sliderRange) {
     this.sliderRange.value = sliderRange; 
   }
   void setKarmaRange(double range) {
     karmaRange.value = range; 
   }
-
-  void start1on1TextChat() async {
-      final prefs = await SharedPreferences.getInstance();                 
-     Get.to(()=>TextchatView());     
+  
+  void getInterests() async {
+    Response respUserInterests = await userProvider.getCurrentUserInterests();
+    if(respUserInterests.statusCode==200){
+      print(respUserInterests.body['interests'].toString());
+    }         
   }
 
 }
